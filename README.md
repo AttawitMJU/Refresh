@@ -1,6 +1,8 @@
 # refresh
 
-> My unreal Nuxt.js project
+> My Nuxt.js project + Firebase (Cloud Firestore) with Realtime Data
+
+> Computer Science @Maejo University
 
 ## Build Setup
 
