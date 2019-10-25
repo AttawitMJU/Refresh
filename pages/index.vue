@@ -1,92 +1,48 @@
 <template>
-  <v-layout
-    column
-    justify-center
-    align-center
-  >
-    <v-flex
-      xs12
-      sm8
-      md6
-    >
-      <div class="text-center">
-        <logo />
-        <vuetify-logo />
-      </div>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-            >
-              documentation
-            </a>.
-          </p>
-          <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              title="chat"
-            >
-              discord
-            </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              title="contribute"
-            >
-              issue board
-            </a>.
-          </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-          >
-            Nuxt Documentation
-          </a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/inspire"
-          >
-            Continue
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-flex>
-  </v-layout>
+<v-container>
+    <v-form>
+        <v-text-field v-model="txt" label="Text" class="ma-2"></v-text-field>
+        <v-item-group class="d-inline-flex">
+            <v-checkbox v-model="checkbox" v-for="n in 3" :key="n" :label="`Checkbox ${n}`" :value="n" class="mr-5"></v-checkbox>
+        </v-item-group>
+        <v-radio-group v-model="radioGroup" row>
+            <v-radio v-for="n in 3" :key="n" :label="`Radio ${n}`" :value="n"></v-radio>
+        </v-radio-group>
+        <v-switch v-model="switch1" label="Switch On/Off" inset></v-switch>
+        <v-rating v-model="rating" label="Rating"></v-rating>
+        <v-slider v-model="slider" min="0" max="100" label="Slider"></v-slider>
+        <v-btn color="success" class="mr-4">Submit</v-btn>
+        <v-btn color="warning" class="mr-4" @click="reset">
+            Reset Form
+        </v-btn>
+    </v-form>
+    <v-card class="d-flex flex-wrap mt-5">
+        <v-card v-for="item in textList" :key="n" class="pa-2" outlined tile>
+            {{item.value}}
+        </v-card>
+    </v-card>
+</v-container>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
-
 export default {
-  components: {
-    Logo,
-    VuetifyLogo
-  }
+    data: function () {
+        return {
+            txt: '',
+            checkbox:[],
+            radioGroup:null,
+            switch1: false,
+            rating:3,
+            slider:20,
+            textList:[]
+        }
+    },
+    methods: {
+      
+    }
 }
 </script>
+
+<style>
+
+</style>
